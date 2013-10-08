@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/appdevelopper/Library/Developer/Shared/Documentation/DocSets/com.xappsoft.Tinykitchen.docset
+Time: 2013-07-11 13:19:51 +0000
