@@ -9,23 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "Controller.h"
 #import "AdView.h"
+#import "InfoViewController.h"
 
 @class HomeViewController;
 @class FigureViewController;
 @class KitchenViewController;
-@class Info2ViewController;
-@class MoreAppViewController;
+
+
 
 
 #define kFirstVersionKey @"firstVersionKey"
 #define kLastVersionKey @"lastVersionKey"
 
-@interface RootViewController : UIViewController<AdViewDelegate>{
+@interface RootViewController : UIViewController<InfoDelegate>{
 
 	CGRect frame;
 	AdView *_adContainer;
 	
-	Info2ViewController *info2VC;
+    InfoViewController *infoVC;
 	
 }
 
@@ -33,7 +34,7 @@
 @property (nonatomic, strong) HomeViewController *homeVC;
 @property (nonatomic, strong) FigureViewController* figureVC;
 @property (nonatomic, strong) KitchenViewController *kitchenVC;
-@property (nonatomic, strong) MoreAppViewController *moreVC;
+
 @property (nonatomic, assign) BOOL isFirstOpen,isUpdateOpen;
 @property (nonatomic, assign) float firstVersion, lastVersion, thisVersion;
 
@@ -47,16 +48,16 @@
 - (void)toKitchen;
 - (void)toInfo;
 - (void)closeInfo;
-- (void)toMore;
+//- (void)toMore;
 //- (void)removeIAPFeatures;
 
 - (void)test;
 
 - (void)fadeinSubView:(UIView*)subview outSubViews:(NSArray*)outViews;
 
-- (void)initBanner;
-- (void)showBanner;
-- (void)hideBanner;
+//- (void)initBanner;
+//- (void)showBanner;
+//- (void)hideBanner;
 
 
 - (void)IAPDidFinished:(NSString*)identifier;

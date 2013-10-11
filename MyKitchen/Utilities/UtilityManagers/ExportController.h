@@ -15,16 +15,17 @@
 
 @interface ExportController : NSObject<MFMailComposeViewControllerDelegate, UIAlertViewDelegate>{
 	MFMailComposeViewController *mailPicker;
+    TWTweetComposeViewController *tweetViewController;
 }
 
 
 +(id)sharedInstance;
 
-- (void)sendEmail:(NSDictionary*)info delegate:(id)delegate;
-
-- (void)sendTweet:(NSString*)text delegate:(id)delegate;
-- (void)sendTweetWithImage:(UIImage*)img delegate:(id)delegate;
+- (void)sendEmail:(NSDictionary *)info;
+- (void)sendTweetWithText:(NSString*)text image:(UIImage*)image;
 
 - (void)toRate;
 - (void)showRateAlert;
+
+- (void)linkToAppStoreWithID:(NSString*)appID;
 @end

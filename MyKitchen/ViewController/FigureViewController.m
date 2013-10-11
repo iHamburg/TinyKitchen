@@ -13,8 +13,6 @@
 
 @synthesize rootVC;
 
-
-
 - (void)loadView{
 	L();
 
@@ -22,7 +20,7 @@
 	[self.view setBGView:@"Figures2_BG.jpg"];
 
 	
-	homeB = [UIButton buttonWithFrame:CGRectMake(10, 10, 60, 60) title:nil image:@"home.png" target:self actcion:@selector(buttonClicked:)];
+	homeB = [UIButton buttonWithFrame:CGRectMake(10, 10, 60, 60) title:nil imageName:@"home.png" target:self action:@selector(buttonClicked:)];
 	[homeB setTitleColor:[UIColor blackColor]  forState:UIControlStateNormal];
 	homeB.autoresizingMask = kAutoResize;
 	
@@ -78,22 +76,16 @@
 	
 //	CGFloat wLock = isPad?64:32;
 
-	NSLog(@"isIAPfull version # %d",isIAPFullVersion);
+//	NSLog(@"isIAPfull version # %d",isIAPFullVersion);
 	
 	if (!isPaid() && !isIAPFullVersion) {
-//		lock1 = [[UIImageView alloc]initWithFrame:CGRectMake(0.2*_w, 0.68*_h, wLock, wLock)];
-//		lock1.image = [UIImage imageNamed:@"Icon_Lock.png"];
-//
-//		lock2 = [[UIImageView alloc]initWithFrame:CGRectMake(0.73*_w, 0.68*_h, wLock, wLock)];
-//		lock2.image = [UIImage imageNamed:@"Icon_Lock.png"];
-//
-//		
-//		[self.view addSubview:lock1];
-//		[self.view addSubview:lock2];
 
-		lion.image = [UIImage imageNamedUniversal:@"Figures_lion_IAP.png"];
-		pinguin.image = [UIImage imageNamedUniversal:@"Figure_penguin_IAP.png"];
+
+		lion.image = [UIImage imageWithContentsOfFileUniversal:@"Figures_lion_IAP.png"];
+		pinguin.image = [UIImage imageWithContentsOfFileUniversal:@"Figure_penguin_IAP.png"];
 	}
+    
+
 }
 
 #pragma mark - IBAction

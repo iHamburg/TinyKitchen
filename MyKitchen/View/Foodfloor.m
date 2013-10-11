@@ -19,7 +19,7 @@
 	vc = _vc;
 	
 	openRect = CGRectMake(0, _h - kHFoodfloor, _w, kHFoodfloor);
-	closeRect = isPad?CGRectMake(0, 748, 1024, kHFoodfloor):CGRectMake(0, 305, _w, kHFoodfloor);
+	closeRect = isPad?CGRectMake(0, 708, 1024, kHFoodfloor):CGRectMake(0, 305, _w, kHFoodfloor);
 	
 	isOpen = NO;
 	pageIndex = 0;

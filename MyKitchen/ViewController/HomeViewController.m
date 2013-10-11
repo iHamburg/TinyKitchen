@@ -24,7 +24,7 @@
 	CGFloat wInfo = isPad?200:85;
 	
 	
-	infoB = [UIButton buttonWithFrame:CGRectMake(0.8* _w, 0.26*_h, wInfo, wInfo) title:nil image:@"Hauptmenu_Info~ipad.png" target:self actcion:@selector(buttonClicked:)];
+	infoB = [UIButton buttonWithFrame:CGRectMake(0.8* _w, 0.26*_h, wInfo, wInfo) title:nil imageName:@"Hauptmenu_Info~ipad.png" target:self action:@selector(buttonClicked:)];
 //	infoB.autoresizingMask = kAutoResize;
 //	moreB = [UIButton buttonWithFrame:CGRectMake(810, 200, 200, 200) title:nil image:@"Hauptmenu_more_apps~ipad.png" target:self actcion:@selector(buttonClicked:)];
 //	moreB.autoresizingMask = kAutoResize;
@@ -34,7 +34,7 @@
 	CGFloat wSprecher = isPad?50:30;
 	CGFloat xSprecher = 0.7*_w;
 	CGFloat ySprecher = isPad?20:10;
-	sprecherB = [UIButton buttonWithFrame:CGRectMake(xSprecher, ySprecher, wSprecher, wSprecher) title:nil image:silent?@"icon_sprecher_off.png":@"icon_sprecher_on.png" target:self actcion:@selector(buttonClicked:)];
+	sprecherB = [UIButton buttonWithFrame:CGRectMake(xSprecher, ySprecher, wSprecher, wSprecher) title:nil imageName:silent?@"icon_sprecher_off.png":@"icon_sprecher_on.png" target:self action:@selector(buttonClicked:)];
 
     
 	CGFloat wStart = isPad?300:150;
@@ -75,9 +75,7 @@
 	
 		[rootVC toInfo];
 	}
-	else if(sender == moreB) {
-		[rootVC toMore];
-	}
+
 	else if(sender == startB) {
 		[rootVC toFigure];
 	}

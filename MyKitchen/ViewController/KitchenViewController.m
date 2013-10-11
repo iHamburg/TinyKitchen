@@ -163,10 +163,11 @@
 	//打开maschineview
 	[maschinesView open];
 	
-	
+	[self layoutADBanner:[AdView sharedInstance]];
+    
 	[self test];
     
-    NSLog(@"desk # %@, desk.superv # %@",desk,desk.superview);
+//    NSLog(@"desk # %@, desk.superv # %@",desk,desk.superview);
 //    NSLog(@"window# %@, window.superv # %@",window,window.superview);
 }
 
@@ -177,33 +178,76 @@
 }
 
 
-#pragma mark - ADView
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+#pragma mark - Notification
 
-- (void)layoutBanner:(UIView*)banner loaded:(BOOL)loaded{
-	
-	L();
-	
-	[UIView animateWithDuration:0.25 animations:^{
+- (void)registerNotifications{
+    
+    //
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleAdviewNotification:) name:NotificationAdChanged object:nil];
+    
+}
+
+- (void)handleAdviewNotification:(NSNotification*)notification{
+    [self layoutADBanner:notification.object];
+    
+}
+
+#pragma mark - Adview
+
+
+- (void)layoutADBanner:(AdView *)banner{
+    
+    L();
+    
+    [UIView animateWithDuration:0.25 animations:^{
 		
-		if (loaded) { // 从不显示到显示banner
+		if (banner.isAdDisplaying) { // 从不显示到显示banner
             
-			figureContainer.frame = CGRectMake(0, -_hAdBanner, _w, _h);
-			
-			[banner setOrigin:CGPointMake(0, _h - _hAdBanner)];
-			
+			[banner setOrigin:CGPointMake(0, _h - banner.height)];
+            figureContainer.frame = CGRectMake(0, -_hAdBanner, _w, _h);
+
+			[rootVC.view addSubview:banner];
 		}
 		else{
-            
-			figureContainer.frame = CGRectMake(0, 0, _w, _h);
+            figureContainer.frame = CGRectMake(0, 0, _w, _h);
 			[banner setOrigin:CGPointMake(0, _h)];
 		}
 		
     }];
-	
-    //	//	NSLog(@"H# %f,hBanner # %f,banner # %@",_h,_hAdBanner,banner);
-    //	NSLog(@"foodfloor # %@",foodfloor);
-	
+    
 }
+
+//
+//#pragma mark - ADView
+//
+//- (void)layoutBanner:(UIView*)banner loaded:(BOOL)loaded{
+//	
+//	L();
+//	
+//	[UIView animateWithDuration:0.25 animations:^{
+//		
+//		if (loaded) { // 从不显示到显示banner
+//            
+//			figureContainer.frame = CGRectMake(0, -_hAdBanner, _w, _h);
+//			
+//			[banner setOrigin:CGPointMake(0, _h - _hAdBanner)];
+//			
+//		}
+//		else{
+//            
+//			figureContainer.frame = CGRectMake(0, 0, _w, _h);
+//			[banner setOrigin:CGPointMake(0, _h)];
+//		}
+//		
+//    }];
+//	
+//    //	//	NSLog(@"H# %f,hBanner # %f,banner # %@",_h,_hAdBanner,banner);
+//    //	NSLog(@"foodfloor # %@",foodfloor);
+//	
+//}
 
 #pragma mark - SpriteDelegate
 - (void)spriteDidClicked:(Sprite *)sprite{
@@ -532,47 +576,8 @@
 	
 	[self.view addSubview:outdoorVC.view];
 	
-	[rootVC hideBanner];
+//	[rootVC hideBanner];
 }
-
-//
-//
-//#pragma mark - Think Food
-//
-//- (void)wantFood{
-//	
-//	//show cloud and food, set wantedFoodName
-//	
-//	
-//}
-//
-//- (void)generateThinkFood{
-//	
-//	
-//	// 先确定category，
-//
-//	
-//	//不能生成outdoor
-//	thinkedFood = [[FoodManager sharedInstance]foodRandomInCategory:FoodOutdoor];
-//	
-//	// 再从category中随机选一个food
-//
-//	
-//}
-//- (void)showCloud{
-//
-//	[self.view addSubview:thinkCloud];
-//}
-//
-//- (void)closeCloud{
-//	[thinkCloud removeFromSuperview];
-//}
-//
-//- (void)showOutdoorHinweis{
-//	[self.view addSubview:outdoorHinweis];
-//	
-//	[outdoorHinweis performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:3];
-//}
 
 #pragma mark -　Function
 - (CGRect)foodPositionOnPlate:(Food*)food{
@@ -618,7 +623,7 @@
 	
 	outdoorVC = nil;
 	
-	[rootVC showBanner];
+//	[rootVC showBanner];
 	
 	
 	NSDictionary *dict = @{

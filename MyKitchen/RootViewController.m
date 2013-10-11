@@ -10,12 +10,11 @@
 #import "FigureViewController.h"
 #import "KitchenViewController.h"
 #import "HomeViewController.h"
-#import "Info2ViewController.h"
-#import "MoreAppViewController.h"
+#import "TKInfoViewController.h"
 
 @implementation RootViewController
 
-@synthesize homeVC,figureVC,moreVC,kitchenVC;
+@synthesize homeVC,figureVC,kitchenVC;
 
 @synthesize firstVersion,lastVersion,thisVersion,isFirstOpen,isUpdateOpen;
 
@@ -73,7 +72,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//	L();
+
+    [self registerNotifications];
 	
 	[ExportController sharedInstance];
 
@@ -108,7 +108,8 @@
 
 	[self toHome];
 	
-	[self initBanner];
+    [AdView sharedInstance];
+//	[self initBanner];
 	
 	NSLog(@"root # %@",self.view);
 	
@@ -175,6 +176,8 @@
 	
 }
 
+
+
 - (void)preLoad{
 	
 	if (isFirstOpen) {
@@ -194,6 +197,51 @@
 	
 }
 
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+#pragma mark - Notification
+
+- (void)registerNotifications{
+    
+    //
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleAdviewNotification:) name:NotificationAdChanged object:nil];
+    
+}
+
+- (void)handleAdviewNotification:(NSNotification*)notification{
+    [self layoutADBanner:notification.object];
+    
+}
+
+#pragma mark - Adview
+
+
+- (void)layoutADBanner:(AdView *)banner{
+    
+    L();
+    
+    [UIView animateWithDuration:0.25 animations:^{
+		
+		if (banner.isAdDisplaying) { // 从不显示到显示banner
+            
+			[banner setOrigin:CGPointMake(0, _h - banner.height)];
+			[self.view addSubview:banner];
+		}
+		else{
+			[banner setOrigin:CGPointMake(0, _h)];
+		}
+		
+    }];
+    
+}
+
+#pragma mark - Info
+- (void)infoVCWillClose:(InfoViewController *)infoVC_{
+    [self closeInfo];
+}
+
 #pragma mark - Navi
 
 - (void)toHome{
@@ -203,7 +251,7 @@
 
 	//消除缓存
 
-	moreVC = nil;
+
 	
 	[self.view addSubview:_adContainer];
 }
@@ -221,7 +269,8 @@
 	[[AudioController sharedInstance]playBGMusicWithScene:SceneHome];
     [self fadeinSubView:self.figureVC.view outSubViews:[NSArray arrayWithObjects:self.kitchenVC.view,self.homeVC.view,nil]];
 	
-	[self.view addSubview:_adContainer];
+//	[self.view addSubview:_adContainer];
+    [self.view addSubview:[AdView sharedInstance]];
    
 }
 
@@ -253,19 +302,12 @@
 // home->info 
 - (void)toInfo{
 
-//	
-//	infoVC = [[InfoViewController alloc ]initWithNibName:@"InfoViewController" bundle:nil];
-//	infoVC.view.autoresizingMask = kAutoResize;
-//	infoVC.rootVC = self;
-//	infoVC.view.frame = self.view.bounds;
-//	[self.view addSubview:infoVC.view];
+
 	
-	if (!info2VC) {
-		info2VC = [[Info2ViewController alloc]init];
-		info2VC.view.alpha = 1;
-		info2VC.root = self;
-	}
-	
+
+    infoVC = [[TKInfoViewController alloc]init];
+    infoVC.view.alpha = 1;
+    infoVC.delegate = self;
 	
 	
 	[UIView beginAnimations:nil context:nil];
@@ -273,11 +315,12 @@
     [UIView setAnimationBeginsFromCurrentState:NO];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
 	
-    [self.view addSubview:info2VC.view];
+    [self.view addSubview:infoVC.view];
     
     [UIView commitAnimations];
 	
 
+     [self.view addSubview:[AdView sharedInstance]];
 
 }
 
@@ -290,19 +333,15 @@
     [UIView setAnimationBeginsFromCurrentState:NO];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
 	
-    [info2VC.view removeFromSuperview];
+    [infoVC.view removeFromSuperview];
+    
 	
     [UIView commitAnimations];
+    
+    infoVC = nil;
+    
 }
 
-//home -> morevc
-- (void)toMore{
-	
-	moreVC = [[MoreAppViewController alloc]initWithNibName:@"MoreAppViewController" bundle:nil];
-	moreVC.rootVC = self;
-	moreVC.view.frame = self.view.bounds;
-    [self.view addSubview:self.moreVC.view];
-}
 
 
 
@@ -330,44 +369,44 @@
 
 #pragma mark - AdView
 
-- (void)initBanner{
-	L();
-//	NSLog(@"w # %f, h # %f",_w,_h);
-	//
-	if (isPaid() || isIAPFullVersion) {
-		[_adContainer removeFromSuperview];
-		_adContainer.delegate = nil;
-		_adContainer = nil;
-	}
-	else{
-		if (!_adContainer) {
-			_adContainer = [[AdView alloc]initWithFrame:CGRectMake(0, _h-_hAdBanner, _w, _hAdBanner)];
-			_adContainer.delegate = self;
-
-		}
-		
-		
-		[self.view addSubview:_adContainer];
-
-		
-	}
-}
-
-- (void)layoutBanner:(BOOL)loaded{
-	
-	//kitchen的floor位置先定下来了，没有及时的layout？
-	
-	[self.kitchenVC layoutBanner:_adContainer loaded:loaded];
-	
-}
-
-
-- (void)showBanner{
-	_adContainer.hidden = NO;
-}
-- (void)hideBanner{
-	_adContainer.hidden = YES;
-}
+//- (void)initBanner{
+//	L();
+////	NSLog(@"w # %f, h # %f",_w,_h);
+//	//
+//	if (isPaid() || isIAPFullVersion) {
+//		[_adContainer removeFromSuperview];
+//		_adContainer.delegate = nil;
+//		_adContainer = nil;
+//	}
+//	else{
+//		if (!_adContainer) {
+//			_adContainer = [[AdView alloc]initWithFrame:CGRectMake(0, _h-_hAdBanner, _w, _hAdBanner)];
+//			_adContainer.delegate = self;
+//
+//		}
+//		
+//		
+//		[self.view addSubview:_adContainer];
+//
+//		
+//	}
+//}
+//
+//- (void)layoutBanner:(BOOL)loaded{
+//	
+//	//kitchen的floor位置先定下来了，没有及时的layout？
+//	
+//	[self.kitchenVC layoutBanner:_adContainer loaded:loaded];
+//	
+//}
+//
+//
+//- (void)showBanner{
+//	_adContainer.hidden = NO;
+//}
+//- (void)hideBanner{
+//	_adContainer.hidden = YES;
+//}
 
 
 #pragma mark - IAP
@@ -378,24 +417,27 @@
 	L();
 	// ads
 	
-	[self initBanner];
+//	[self initBanner];
 
 	[self toHome];
 	
 	self.kitchenVC = nil;
 	self.figureVC = nil;
+    
+    [AdView releaseSharedInstance];
 }
 - (void)IAPDidRestored{
 	
 	L();
 	
-	[self initBanner];
+//	[self initBanner];
 	[self toHome];
 	
 	
 	self.kitchenVC = nil;
 	self.figureVC = nil;
-
+    
+    [AdView releaseSharedInstance];
 }
 
 

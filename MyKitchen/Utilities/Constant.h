@@ -19,6 +19,11 @@
 
 #define kCORNERRADIUS 20
 
+
+
+#define SSupportEmailTitle @"Feedback for Tiny Kitchen"
+#define SRecommendEmailTitle @"Tiny Kitchen -- Amazing App for Kids"
+
 #pragma mark - file
 
 

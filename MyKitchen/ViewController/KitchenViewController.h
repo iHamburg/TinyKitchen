@@ -84,7 +84,7 @@
 - (void)setEyesMoveFlag;
 
 
-- (void)layoutBanner:(UIView*)banner loaded:(BOOL)loaded;
+//- (void)layoutBanner:(UIView*)banner loaded:(BOOL)loaded;
 
 // new to added feature
 //- (void)wantFood;
