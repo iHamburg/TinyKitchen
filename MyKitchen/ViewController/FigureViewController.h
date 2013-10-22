@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Controller.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 #import "FigureDash.h"
 #import "MyStoreObserver.h"
 
@@ -25,7 +25,7 @@
 	
 }
 
-@property (nonatomic, unsafe_unretained) RootViewController *rootVC;
+@property (nonatomic, unsafe_unretained) TKRootViewController *rootVC;
 
 //- (void)removeIAPFeature;
 @end

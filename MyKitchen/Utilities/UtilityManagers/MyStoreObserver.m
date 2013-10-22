@@ -7,7 +7,7 @@
 //
 
 #import "MyStoreObserver.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 
 @implementation MyStoreObserver
 
@@ -178,7 +178,7 @@
 		[alert show];
 	}
 	else{
-		[[RootViewController sharedInstance]IAPDidRestored];
+		[[TKRootViewController sharedInstance]IAPDidRestored];
 	}
 	
 
@@ -206,7 +206,7 @@
 	
 	[[NSUserDefaults standardUserDefaults]synchronize];
 	
-	[[RootViewController sharedInstance]IAPDidFinished:aidentifier];
+	[[TKRootViewController sharedInstance]IAPDidFinished:aidentifier];
 	
 }
 

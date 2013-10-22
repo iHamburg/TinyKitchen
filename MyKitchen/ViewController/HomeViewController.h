@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Controller.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 
 @interface HomeViewController : UIViewController<SpriteDelegate>{
 	UIButton *infoB;
@@ -20,5 +20,5 @@
 	
 }
 
-@property (nonatomic, unsafe_unretained) RootViewController *rootVC;
+@property (nonatomic, unsafe_unretained) TKRootViewController *rootVC;
 @end

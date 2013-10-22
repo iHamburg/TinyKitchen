@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Controller.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 #import "Figure.h"
 #import "Food.h"
 #import "ThinkCloud.h"
@@ -59,7 +59,7 @@
 }
 
 
-@property (nonatomic, unsafe_unretained) RootViewController *rootVC;
+@property (nonatomic, unsafe_unretained) TKRootViewController *rootVC;
 @property (nonatomic, strong) ControlView *controlView; // foodfloor 要使用到这个controlview
 @property (nonatomic, strong) Food *selectedFood;
 @property (nonatomic, assign) MaschineType selectedMaschineType;// 因为这里的maschine不需要传递任何改变，所以传递maschinetype就可以了

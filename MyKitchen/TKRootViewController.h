@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Controller.h"
-#import "AdView.h"
-#import "InfoViewController.h"
+#import "LRootViewController.h"
+//#import "AdView.h"
+//#import "InfoViewController.h"
 
 @class HomeViewController;
 @class FigureViewController;
@@ -21,12 +22,12 @@
 #define kFirstVersionKey @"firstVersionKey"
 #define kLastVersionKey @"lastVersionKey"
 
-@interface RootViewController : UIViewController<InfoDelegate>{
+@interface TKRootViewController : LRootViewController{
 
 	CGRect frame;
-	AdView *_adContainer;
+//	AdView *_adContainer;
 	
-    InfoViewController *infoVC;
+//    InfoViewController *infoVC;
 	
 }
 
@@ -35,13 +36,13 @@
 @property (nonatomic, strong) FigureViewController* figureVC;
 @property (nonatomic, strong) KitchenViewController *kitchenVC;
 
-@property (nonatomic, assign) BOOL isFirstOpen,isUpdateOpen;
-@property (nonatomic, assign) float firstVersion, lastVersion, thisVersion;
+//@property (nonatomic, assign) BOOL isFirstOpen,isUpdateOpen;
+//@property (nonatomic, assign) float firstVersion, lastVersion, thisVersion;
 
-+ (id)sharedInstance;
+//+ (id)sharedInstance;
 
-- (void)checkVersion; // first, last, this version
-- (void)preLoad;
+//- (void)checkVersion; // first, last, this version
+//- (void)preLoad;
 
 - (void)toHome;
 - (void)toFigure;

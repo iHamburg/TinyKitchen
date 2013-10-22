@@ -41,7 +41,7 @@ static NSString *FLURRYFREEKEY = @"992Y4SXSTVBCGFVNR84R";
 
 //	rootVC = [[RootViewController alloc]initWithNibName:@"RootViewController" bundle:nil];
 
-	self.window.rootViewController = [RootViewController sharedInstance];
+	self.window.rootViewController = [TKRootViewController sharedInstance];
     [self.window makeKeyAndVisible];
     return YES;
 }

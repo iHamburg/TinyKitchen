@@ -111,6 +111,12 @@
 		2609D4D818059B6A0019C242 /* MoreApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D47818059B6A0019C242 /* MoreApp.m */; };
 		2609D4DB18059EA60019C242 /* TKInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D4DA18059EA60019C242 /* TKInfoViewController.m */; };
 		2609D4DC18059EA60019C242 /* TKInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D4DA18059EA60019C242 /* TKInfoViewController.m */; };
+		260DC28E1807CD1000E7CADA /* LRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC2891807CD1000E7CADA /* LRootViewController.m */; };
+		260DC28F1807CD1000E7CADA /* LRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC2891807CD1000E7CADA /* LRootViewController.m */; };
+		260DC2901807CD1000E7CADA /* PRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC28B1807CD1000E7CADA /* PRootViewController.m */; };
+		260DC2911807CD1000E7CADA /* PRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC28B1807CD1000E7CADA /* PRootViewController.m */; };
+		260DC2921807CD1000E7CADA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC28D1807CD1000E7CADA /* RootViewController.m */; };
+		260DC2931807CD1000E7CADA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC28D1807CD1000E7CADA /* RootViewController.m */; };
 		266F117B17F70C560024F620 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266F117A17F70C560024F620 /* libFlurry_4.2.3.a */; };
 		266F117C17F70C560024F620 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266F117A17F70C560024F620 /* libFlurry_4.2.3.a */; };
 		266F117E17F70C710024F620 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266F117D17F70C710024F620 /* Security.framework */; };
@@ -437,7 +443,7 @@
 		AFA35A5715EC0F73003E7C5A /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC617D215C0966E00A39ED5 /* LoadingView.m */; };
 		AFA35A5815EC0F73003E7C5A /* MyColorPlatteView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC617D415C0966E00A39ED5 /* MyColorPlatteView.m */; };
 		AFA35A5915EC0F73003E7C5A /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC617D615C0966E00A39ED5 /* Sprite.m */; };
-		AFA35A5A15EC0F73003E7C5A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6181715C09C0800A39ED5 /* RootViewController.m */; };
+		AFA35A5A15EC0F73003E7C5A /* TKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6181715C09C0800A39ED5 /* TKRootViewController.m */; };
 		AFA35A5B15EC0F73003E7C5A /* FigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6182215C09E0B00A39ED5 /* FigureViewController.m */; };
 		AFA35A5C15EC0F73003E7C5A /* KitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6182515C09E2000A39ED5 /* KitchenViewController.m */; };
 		AFA35A5D15EC0F73003E7C5A /* OutdoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6182815C09E2D00A39ED5 /* OutdoorViewController.m */; };
@@ -488,7 +494,7 @@
 		AFA35A8C15EC0F73003E7C5A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0339F015C0212600CCF3EC /* CoreGraphics.framework */; };
 		AFA35A8F15EC0F73003E7C5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF0339F515C0212600CCF3EC /* InfoPlist.strings */; };
 		AFA35A9015EC0F73003E7C5A /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AFC6178A15C0966E00A39ED5 /* FBDialog.bundle */; };
-		AFA35A9115EC0F73003E7C5A /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC6181F15C09CE300A39ED5 /* RootViewController.xib */; };
+		AFA35A9115EC0F73003E7C5A /* TKRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC6181F15C09CE300A39ED5 /* TKRootViewController.xib */; };
 		AFA35A9215EC0F73003E7C5A /* Animation_star1.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC6182B15C09F6A00A39ED5 /* Animation_star1.png */; };
 		AFA35A9315EC0F73003E7C5A /* Animation_star2.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC6182C15C09F6A00A39ED5 /* Animation_star2.png */; };
 		AFA35A9415EC0F73003E7C5A /* Figures_BG～ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFC6182D15C09F6A00A39ED5 /* Figures_BG～ipad.jpg */; };
@@ -1052,8 +1058,8 @@
 		AFC6181115C0980A00A39ED5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC6181015C0980A00A39ED5 /* AVFoundation.framework */; };
 		AFC6181315C0981100A39ED5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC6181215C0981100A39ED5 /* MessageUI.framework */; };
 		AFC6181515C0981800A39ED5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC6181415C0981800A39ED5 /* StoreKit.framework */; };
-		AFC6181815C09C0800A39ED5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6181715C09C0800A39ED5 /* RootViewController.m */; };
-		AFC6182015C09CE300A39ED5 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC6181F15C09CE300A39ED5 /* RootViewController.xib */; };
+		AFC6181815C09C0800A39ED5 /* TKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6181715C09C0800A39ED5 /* TKRootViewController.m */; };
+		AFC6182015C09CE300A39ED5 /* TKRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC6181F15C09CE300A39ED5 /* TKRootViewController.xib */; };
 		AFC6182315C09E0B00A39ED5 /* FigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6182215C09E0B00A39ED5 /* FigureViewController.m */; };
 		AFC6182615C09E2000A39ED5 /* KitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6182515C09E2000A39ED5 /* KitchenViewController.m */; };
 		AFC6182915C09E2D00A39ED5 /* OutdoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC6182815C09E2D00A39ED5 /* OutdoorViewController.m */; };
@@ -1414,6 +1420,12 @@
 		2609D47818059B6A0019C242 /* MoreApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreApp.m; sourceTree = "<group>"; };
 		2609D4D918059EA60019C242 /* TKInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInfoViewController.h; sourceTree = "<group>"; };
 		2609D4DA18059EA60019C242 /* TKInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInfoViewController.m; sourceTree = "<group>"; };
+		260DC2881807CD1000E7CADA /* LRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRootViewController.h; sourceTree = "<group>"; };
+		260DC2891807CD1000E7CADA /* LRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRootViewController.m; sourceTree = "<group>"; };
+		260DC28A1807CD1000E7CADA /* PRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRootViewController.h; sourceTree = "<group>"; };
+		260DC28B1807CD1000E7CADA /* PRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRootViewController.m; sourceTree = "<group>"; };
+		260DC28C1807CD1000E7CADA /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		260DC28D1807CD1000E7CADA /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		266F117917F70C560024F620 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		266F117A17F70C560024F620 /* libFlurry_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.2.3.a; sourceTree = "<group>"; };
 		266F117D17F70C710024F620 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -1840,9 +1852,9 @@
 		AFC6181015C0980A00A39ED5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AFC6181215C0981100A39ED5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AFC6181415C0981800A39ED5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		AFC6181615C09C0800A39ED5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		AFC6181715C09C0800A39ED5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		AFC6181F15C09CE300A39ED5 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		AFC6181615C09C0800A39ED5 /* TKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKRootViewController.h; sourceTree = "<group>"; };
+		AFC6181715C09C0800A39ED5 /* TKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKRootViewController.m; sourceTree = "<group>"; };
+		AFC6181F15C09CE300A39ED5 /* TKRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKRootViewController.xib; sourceTree = "<group>"; };
 		AFC6182115C09E0B00A39ED5 /* FigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FigureViewController.h; sourceTree = "<group>"; };
 		AFC6182215C09E0B00A39ED5 /* FigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FigureViewController.m; sourceTree = "<group>"; };
 		AFC6182415C09E2000A39ED5 /* KitchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KitchenViewController.h; sourceTree = "<group>"; };
@@ -2198,6 +2210,7 @@
 		2609D4361805970A0019C242 /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				260DC2871807CD1000E7CADA /* Root */,
 				AFD551A316C8F6FC00D59B0B /* AdView */,
 				2609D44418059B6A0019C242 /* InfoVC */,
 				2609D437180598CD0019C242 /* Instruction */,
@@ -2293,6 +2306,19 @@
 			path = MoreApps;
 			sourceTree = "<group>";
 		};
+		260DC2871807CD1000E7CADA /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				260DC2881807CD1000E7CADA /* LRootViewController.h */,
+				260DC2891807CD1000E7CADA /* LRootViewController.m */,
+				260DC28A1807CD1000E7CADA /* PRootViewController.h */,
+				260DC28B1807CD1000E7CADA /* PRootViewController.m */,
+				260DC28C1807CD1000E7CADA /* RootViewController.h */,
+				260DC28D1807CD1000E7CADA /* RootViewController.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		266F117817F70C560024F620 /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
@@ -2373,9 +2399,9 @@
 			children = (
 				AF0339FB15C0212600CCF3EC /* AppDelegate.h */,
 				AF0339FC15C0212600CCF3EC /* AppDelegate.m */,
-				AFC6181615C09C0800A39ED5 /* RootViewController.h */,
-				AFC6181715C09C0800A39ED5 /* RootViewController.m */,
-				AFC6181F15C09CE300A39ED5 /* RootViewController.xib */,
+				AFC6181615C09C0800A39ED5 /* TKRootViewController.h */,
+				AFC6181715C09C0800A39ED5 /* TKRootViewController.m */,
+				AFC6181F15C09CE300A39ED5 /* TKRootViewController.xib */,
 				AFC6178415C0966E00A39ED5 /* Controller.h */,
 				AFC6178515C0966E00A39ED5 /* Controller.m */,
 				AFC6181A15C09CA300A39ED5 /* ViewController */,
@@ -3475,7 +3501,7 @@
 			files = (
 				AF0339F715C0212600CCF3EC /* InfoPlist.strings in Resources */,
 				AFC617EA15C0966E00A39ED5 /* FBDialog.bundle in Resources */,
-				AFC6182015C09CE300A39ED5 /* RootViewController.xib in Resources */,
+				AFC6182015C09CE300A39ED5 /* TKRootViewController.xib in Resources */,
 				AFC6183C15C09F6A00A39ED5 /* Animation_star1.png in Resources */,
 				2609D49718059B6A0019C242 /* Info_Recommend.png in Resources */,
 				AFC6183D15C09F6A00A39ED5 /* Animation_star2.png in Resources */,
@@ -4048,7 +4074,7 @@
 			files = (
 				AFA35A8F15EC0F73003E7C5A /* InfoPlist.strings in Resources */,
 				AFA35A9015EC0F73003E7C5A /* FBDialog.bundle in Resources */,
-				AFA35A9115EC0F73003E7C5A /* RootViewController.xib in Resources */,
+				AFA35A9115EC0F73003E7C5A /* TKRootViewController.xib in Resources */,
 				AFA35A9215EC0F73003E7C5A /* Animation_star1.png in Resources */,
 				2609D49818059B6A0019C242 /* Info_Recommend.png in Resources */,
 				AFA35A9315EC0F73003E7C5A /* Animation_star2.png in Resources */,
@@ -4658,6 +4684,7 @@
 				AFC617FD15C0966E00A39ED5 /* AnimationManager.m in Sources */,
 				AFC617FE15C0966E00A39ED5 /* AudioController.m in Sources */,
 				AFC617FF15C0966E00A39ED5 /* ExportController.m in Sources */,
+				260DC2921807CD1000E7CADA /* RootViewController.m in Sources */,
 				AFC6180015C0966E00A39ED5 /* MyStoreObserver.m in Sources */,
 				AFC6180115C0966E00A39ED5 /* SpriteManager.m in Sources */,
 				AFC6180215C0966E00A39ED5 /* CodingObject.m in Sources */,
@@ -4665,13 +4692,14 @@
 				AFC6180415C0966E00A39ED5 /* AnimationView.m in Sources */,
 				2609D440180598CD0019C242 /* VerticalInstructionViewController.m in Sources */,
 				AFC6180515C0966E00A39ED5 /* CascadeScrollView.m in Sources */,
+				260DC2901807CD1000E7CADA /* PRootViewController.m in Sources */,
 				2609D4DB18059EA60019C242 /* TKInfoViewController.m in Sources */,
 				AFC6180615C0966E00A39ED5 /* ControlView.m in Sources */,
 				AFC6180715C0966E00A39ED5 /* HTMLView.m in Sources */,
 				AFC6180815C0966E00A39ED5 /* LoadingView.m in Sources */,
 				AFC6180915C0966E00A39ED5 /* MyColorPlatteView.m in Sources */,
 				AFC6180A15C0966E00A39ED5 /* Sprite.m in Sources */,
-				AFC6181815C09C0800A39ED5 /* RootViewController.m in Sources */,
+				AFC6181815C09C0800A39ED5 /* TKRootViewController.m in Sources */,
 				AFC6182315C09E0B00A39ED5 /* FigureViewController.m in Sources */,
 				AFC6182615C09E2000A39ED5 /* KitchenViewController.m in Sources */,
 				AFC6182915C09E2D00A39ED5 /* OutdoorViewController.m in Sources */,
@@ -4693,6 +4721,7 @@
 				5723ED6515C8202200D73176 /* AnimationPart.m in Sources */,
 				5723ED6C15C8400A00D73176 /* Food.m in Sources */,
 				5723ED6F15C8560E00D73176 /* FoodManager.m in Sources */,
+				260DC28E1807CD1000E7CADA /* LRootViewController.m in Sources */,
 				5723ED7215C85F5200D73176 /* FoodPlate.m in Sources */,
 				578F6EBB15C9B5A4009E170F /* Maschine.m in Sources */,
 				578F6EBF15C9BDD1009E170F /* Ofen.m in Sources */,
@@ -4756,6 +4785,7 @@
 				AFA35A4C15EC0F73003E7C5A /* AnimationManager.m in Sources */,
 				AFA35A4D15EC0F73003E7C5A /* AudioController.m in Sources */,
 				AFA35A4E15EC0F73003E7C5A /* ExportController.m in Sources */,
+				260DC2931807CD1000E7CADA /* RootViewController.m in Sources */,
 				AFA35A4F15EC0F73003E7C5A /* MyStoreObserver.m in Sources */,
 				AFA35A5015EC0F73003E7C5A /* SpriteManager.m in Sources */,
 				AFA35A5115EC0F73003E7C5A /* CodingObject.m in Sources */,
@@ -4763,13 +4793,14 @@
 				AFA35A5315EC0F73003E7C5A /* AnimationView.m in Sources */,
 				2609D441180598CD0019C242 /* VerticalInstructionViewController.m in Sources */,
 				AFA35A5415EC0F73003E7C5A /* CascadeScrollView.m in Sources */,
+				260DC2911807CD1000E7CADA /* PRootViewController.m in Sources */,
 				2609D4DC18059EA60019C242 /* TKInfoViewController.m in Sources */,
 				AFA35A5515EC0F73003E7C5A /* ControlView.m in Sources */,
 				AFA35A5615EC0F73003E7C5A /* HTMLView.m in Sources */,
 				AFA35A5715EC0F73003E7C5A /* LoadingView.m in Sources */,
 				AFA35A5815EC0F73003E7C5A /* MyColorPlatteView.m in Sources */,
 				AFA35A5915EC0F73003E7C5A /* Sprite.m in Sources */,
-				AFA35A5A15EC0F73003E7C5A /* RootViewController.m in Sources */,
+				AFA35A5A15EC0F73003E7C5A /* TKRootViewController.m in Sources */,
 				AFA35A5B15EC0F73003E7C5A /* FigureViewController.m in Sources */,
 				AFA35A5C15EC0F73003E7C5A /* KitchenViewController.m in Sources */,
 				AFA35A5D15EC0F73003E7C5A /* OutdoorViewController.m in Sources */,
@@ -4791,6 +4822,7 @@
 				AFA35A6C15EC0F73003E7C5A /* AnimationPart.m in Sources */,
 				AFA35A6D15EC0F73003E7C5A /* Food.m in Sources */,
 				AFA35A6E15EC0F73003E7C5A /* FoodManager.m in Sources */,
+				260DC28F1807CD1000E7CADA /* LRootViewController.m in Sources */,
 				AFA35A6F15EC0F73003E7C5A /* FoodPlate.m in Sources */,
 				AFA35A7015EC0F73003E7C5A /* Maschine.m in Sources */,
 				AFA35A7115EC0F73003E7C5A /* Ofen.m in Sources */,

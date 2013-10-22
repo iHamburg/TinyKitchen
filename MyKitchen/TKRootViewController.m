@@ -6,17 +6,17 @@
 //  Copyright (c) 2012 Xappsoft. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 #import "FigureViewController.h"
 #import "KitchenViewController.h"
 #import "HomeViewController.h"
 #import "TKInfoViewController.h"
 
-@implementation RootViewController
+@implementation TKRootViewController
 
 @synthesize homeVC,figureVC,kitchenVC;
 
-@synthesize firstVersion,lastVersion,thisVersion,isFirstOpen,isUpdateOpen;
+//@synthesize firstVersion,lastVersion,thisVersion,isFirstOpen,isUpdateOpen;
 
 
 - (HomeViewController*)homeVC{
@@ -54,17 +54,17 @@
 #pragma mark -
 
 
-+(id)sharedInstance{
-	
-	static id sharedInstance;
-	
-	if (sharedInstance == nil) {
-		
-		sharedInstance = [[[self class] alloc]initWithNibName:@"RootViewController" bundle:nil];
-	}
-	return sharedInstance;
-	
-}
+//+(id)sharedInstance{
+//	
+//	static id sharedInstance;
+//	
+//	if (sharedInstance == nil) {
+//		
+//		sharedInstance = [[[self class] alloc]initWithNibName:@"TKRootViewController" bundle:nil];
+//	}
+//	return sharedInstance;
+//	
+//}
 
 
 
@@ -73,31 +73,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-    [self registerNotifications];
+//    [self registerNotifications];
 	
-	[ExportController sharedInstance];
-
-	if (isPad) {
-		_r = CGRectMake(0, 0, 1024, 768);
-		_containerRect = _r;
-	}
-	else if(isPhone5){
-		_r = CGRectMake(0, 0, 568, 320);
-		_containerRect = CGRectMake(44, 0, 480, 320);
-	}
-	else{
-		_r = CGRectMake(0, 0, 480, 320);
-		_containerRect = _r;
-	}
-		
-	
-	
-	self.view.frame = _r;
-
-	_h = self.view.height;
-	_w = self.view.width;
-	_hAdBanner = isPad?66:32;
-
+//	[ExportController sharedInstance];
 	
 	[Controller sharedInstance];
 
@@ -107,11 +85,9 @@
 
 
 	[self toHome];
+
 	
-    [AdView sharedInstance];
-//	[self initBanner];
-	
-	NSLog(@"root # %@",self.view);
+//	NSLog(@"root # %@",self.view);
 	
 }
 
@@ -126,75 +102,9 @@
 }
 
 
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-    
-}
-
-- (NSUInteger)supportedInterfaceOrientations{
-	//	L();
-	return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-}
-
-
 - (void)didReceiveMemoryWarning{
 	L();
 	[super didReceiveMemoryWarning];
-}
-
-
-- (void)checkVersion{
-	
-	
-	firstVersion = [[NSUserDefaults standardUserDefaults]floatForKey:kFirstVersionKey];
-	lastVersion = [[NSUserDefaults standardUserDefaults]floatForKey:kLastVersionKey];
-	thisVersion = [[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey] floatValue];
-	
-	if (firstVersion == 0.0) { // 第一次安装app
-		isFirstOpen = YES;
-		
-		firstVersion =  [[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey] floatValue];
-		[[NSUserDefaults standardUserDefaults]setFloat:firstVersion forKey:kFirstVersionKey];
-		
-		lastVersion = firstVersion;
-		[[NSUserDefaults standardUserDefaults]setFloat:lastVersion forKey:kLastVersionKey];
-		
-	}
-	else{ // 已经安装过app，再次打开
-		if (thisVersion != lastVersion) {
-			isUpdateOpen = YES;
-		}
-		
-		[[NSUserDefaults standardUserDefaults]setFloat:thisVersion forKey:kLastVersionKey];
-	}
-	
-	
-	
-}
-
-
-
-- (void)preLoad{
-	
-	if (isFirstOpen) {
-		
-//		[self toInstruction];
-	}
-	else if(isUpdateOpen){
-		
-		//		if (thisVersion == isPaid()?2.5:1.2) {
-		//
-		//		}
-	}
-	else{
-		
-	}
-	
-	
 }
 
 
@@ -203,8 +113,8 @@
 }
 #pragma mark - Notification
 
-- (void)registerNotifications{
-    
+- (void)registerNotification{
+    [super registerNotification];
     //
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleAdviewNotification:) name:NotificationAdChanged object:nil];
     
@@ -249,11 +159,6 @@
 	[[AudioController sharedInstance]playBGMusicWithScene:SceneHome];
     [self fadeinSubView:self.homeVC.view outSubViews:[NSArray arrayWithObjects:self.figureVC.view, nil]];
 
-	//消除缓存
-
-
-	
-	[self.view addSubview:_adContainer];
 }
 
 /*
@@ -292,7 +197,7 @@
     [self fadeinSubView:self.kitchenVC.view outSubViews:[NSArray arrayWithObject:self.figureVC.view]];
 
 
-	[self.view addSubview:_adContainer];
+//	[self.view addSubview:_adContainer];
 }
 
 /*
@@ -367,47 +272,6 @@
 
 
 
-#pragma mark - AdView
-
-//- (void)initBanner{
-//	L();
-////	NSLog(@"w # %f, h # %f",_w,_h);
-//	//
-//	if (isPaid() || isIAPFullVersion) {
-//		[_adContainer removeFromSuperview];
-//		_adContainer.delegate = nil;
-//		_adContainer = nil;
-//	}
-//	else{
-//		if (!_adContainer) {
-//			_adContainer = [[AdView alloc]initWithFrame:CGRectMake(0, _h-_hAdBanner, _w, _hAdBanner)];
-//			_adContainer.delegate = self;
-//
-//		}
-//		
-//		
-//		[self.view addSubview:_adContainer];
-//
-//		
-//	}
-//}
-//
-//- (void)layoutBanner:(BOOL)loaded{
-//	
-//	//kitchen的floor位置先定下来了，没有及时的layout？
-//	
-//	[self.kitchenVC layoutBanner:_adContainer loaded:loaded];
-//	
-//}
-//
-//
-//- (void)showBanner{
-//	_adContainer.hidden = NO;
-//}
-//- (void)hideBanner{
-//	_adContainer.hidden = YES;
-//}
-
 
 #pragma mark - IAP
 
@@ -416,8 +280,6 @@
 	
 	L();
 	// ads
-	
-//	[self initBanner];
 
 	[self toHome];
 	

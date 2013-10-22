@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Controller.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 #import "MoreAppView.h"
 
 @interface MoreAppViewController : UIViewController<MoreAppViewDelegate>{
@@ -23,7 +23,7 @@
 	MoreAppView *v1,*v2,*v3;
 }
 
-@property (nonatomic, unsafe_unretained) RootViewController *rootVC;
+@property (nonatomic, unsafe_unretained) TKRootViewController *rootVC;
 
 - (IBAction)toApp1:(id)sender;
 - (IBAction)toApp2:(id)sender;

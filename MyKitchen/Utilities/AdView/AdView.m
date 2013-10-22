@@ -7,7 +7,7 @@
 //
 
 #import "AdView.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 #import "MyStoreObserver.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -258,7 +258,7 @@ static id sharedInstance;
 	_gadView.layer.shadowColor = [UIColor grayColor].CGColor;
 	
 	_gadView.adUnitID = MY_BANNER_UNIT_ID;
-	_gadView.rootViewController = [RootViewController sharedInstance];
+	_gadView.rootViewController = [TKRootViewController sharedInstance];
 	
 	_gadView.delegate = self;
 	[_gadView loadRequest:[GADRequest request]];

@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "FBConnect.h"
 #import "FBViewController.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 
 #define FBAppID @"215758368551004"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
-	RootViewController *rootVC;
+	TKRootViewController *rootVC;
 }
 
 @property (strong, nonatomic) UIWindow *window;

@@ -7,7 +7,7 @@
 //
 
 #import "ExportController.h"
-#import "RootViewController.h"
+#import "TKRootViewController.h"
 
 @implementation ExportController
 
@@ -80,7 +80,7 @@
 	}
 	
 	
-	[[RootViewController sharedInstance] presentModalViewController:mailPicker animated:NO];
+	[[TKRootViewController sharedInstance] presentModalViewController:mailPicker animated:NO];
 }
 
 
@@ -168,11 +168,11 @@
         //                break;
         //        }
 		
-        [[RootViewController sharedInstance] dismissModalViewControllerAnimated:YES];
+        [[TKRootViewController sharedInstance] dismissModalViewControllerAnimated:YES];
     }];
     
     // Present the tweet composition view controller modally.
-    [[RootViewController sharedInstance] presentModalViewController:tweetViewController animated:YES];
+    [[TKRootViewController sharedInstance] presentModalViewController:tweetViewController animated:YES];
 	
 }
 
