@@ -84,13 +84,19 @@ static id sharedInstance;
 												   object:nil];
 
 		
+        gateV = [[UIView alloc] initWithFrame:self.bounds];
+        
 	
         [self setupGAD];
 		
 		// 开始时hidden，等到载入iad时才显示
 //		self.hidden = YES;
 	
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+//        tap.delegate = self;
+//        [gateV addGestureRecognizer:tap];
 
+//        [self addSubview:gateV];
     }
     return self;
 }
@@ -109,6 +115,12 @@ static id sharedInstance;
 //	L();
 
 //	[[ViewController sharedInstance] initBanner];
+}
+
+
+
+- (IBAction)handleTap:(UITapGestureRecognizer*)sender{
+    L();
 }
 #pragma mark - iAD Banner
 
@@ -264,6 +276,7 @@ static id sharedInstance;
 	[_gadView loadRequest:[GADRequest request]];
 	
 	[self addSubview:_gadView];
+//    [self insertSubview:_gadView belowSubview:gateV];
 	
 	[_iadView removeFromSuperview];
 	_iadView.delegate = nil;
@@ -271,6 +284,16 @@ static id sharedInstance;
 	
 }
 
+//
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    L();
+//    return NO;
+//}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    L();
+}
 
 
 @end

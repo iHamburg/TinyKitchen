@@ -14,11 +14,11 @@
 
 extern NSString *const NotificationAdChanged;
 
-@interface AdView : UIView<GADBannerViewDelegate,ADBannerViewDelegate>{
+@interface AdView : UIView<GADBannerViewDelegate,ADBannerViewDelegate, UIGestureRecognizerDelegate>{
 	
 	ADBannerView *_iadView;
 	GADBannerView *_gadView;
-
+    UIView *gateV;
 }
 
 +(id)sharedInstance;

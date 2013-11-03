@@ -73,9 +73,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-//    [self registerNotifications];
-	
-//	[ExportController sharedInstance];
 	
 	[Controller sharedInstance];
 
@@ -86,9 +83,6 @@
 
 	[self toHome];
 
-	
-//	NSLog(@"root # %@",self.view);
-	
 }
 
 
