@@ -125,14 +125,19 @@
 		if (sprite == lion) {
 			[[AudioController sharedInstance]play:AudioFigureLion];
 		}
-//		else if(sprite == cat){
-//			[[AudioController sharedInstance]play:AudioFigureCat];
-//		}
+
 		else if(sprite == pinguin){
 			[[AudioController sharedInstance]play:AudioFigurePinguin];
 		}
 		
-		[[MyStoreObserver sharedInstance]showFullVersionAlert];
+		
+        validator.completionHandler = ^(BOOL completed){
+            if (completed) {
+                [[MyStoreObserver sharedInstance]showFullVersionAlert];
+            }
+        };
+        
+        [validator validate];
 		
 	}
 

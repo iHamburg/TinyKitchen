@@ -11,6 +11,7 @@
 #import "TKRootViewController.h"
 #import "FigureDash.h"
 #import "MyStoreObserver.h"
+#import "ParentalGateValidator.h"
 
 @interface FigureViewController : UIViewController<SpriteDelegate>{
 	UIButton *homeB;
@@ -20,6 +21,7 @@
 	UIImageView *lock1, *lock2, *lock3;
 	
 	FigureDash *dash;
+    ParentalGateValidator *validator;
 	
 	int figureIndex;
 	

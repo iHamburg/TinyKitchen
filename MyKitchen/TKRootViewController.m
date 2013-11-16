@@ -54,19 +54,6 @@
 #pragma mark -
 
 
-//+(id)sharedInstance{
-//	
-//	static id sharedInstance;
-//	
-//	if (sharedInstance == nil) {
-//		
-//		sharedInstance = [[[self class] alloc]initWithNibName:@"TKRootViewController" bundle:nil];
-//	}
-//	return sharedInstance;
-//	
-//}
-
-
 
 - (void)viewDidLoad
 {
@@ -168,7 +155,6 @@
 	[[AudioController sharedInstance]playBGMusicWithScene:SceneHome];
     [self fadeinSubView:self.figureVC.view outSubViews:[NSArray arrayWithObjects:self.kitchenVC.view,self.homeVC.view,nil]];
 	
-//	[self.view addSubview:_adContainer];
     [self.view addSubview:[AdView sharedInstance]];
    
 }

@@ -204,8 +204,17 @@
 
 - (void)facebook{
 	
+	 
+    validator = [[ParentalGateValidator alloc] init];
+    validator.completionHandler = ^(BOOL completed){
+        if (completed) {
+            [[FBViewController sharedInstance]feed];
+        }
+    };
     
-	[[FBViewController sharedInstance]feed];
+    [validator validate];
+    
+
     
 }
 @end

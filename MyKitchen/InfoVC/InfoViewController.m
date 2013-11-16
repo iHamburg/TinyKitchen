@@ -100,12 +100,32 @@
 }
 
 - (void)aboutus{
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.xappsoft.de/index.php?lang=en"]];
+    
+    validator = [[ParentalGateValidator alloc] init];
+    validator.completionHandler = ^(BOOL completed){
+        if (completed) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.xappsoft.de/index.php?lang=en"]];
+            
+        }
+    };
+    
+    [validator validate];
+
 }
 - (void)tweetus{
 	
 
-	[[ExportController sharedInstance]sendTweetWithText:STwitter image:nil];
+
+    
+    validator = [[ParentalGateValidator alloc] init];
+    validator.completionHandler = ^(BOOL completed){
+        if (completed) {
+            	[[ExportController sharedInstance]sendTweetWithText:STwitter image:nil];
+        }
+    };
+    
+    [validator validate];
+
 }
 
 - (void)facebook{
@@ -114,37 +134,67 @@
 //	[[FacebookManager sharedInstance]feed];
 }
 - (void)email{
-	
-	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-						  SRecommendEmailTitle, @"subject",
-						  @"",@"emailBody",
-						  nil];
-	
-	[[ExportController sharedInstance] sendEmail:dict];
+	   
+    validator = [[ParentalGateValidator alloc] init];
+    validator.completionHandler = ^(BOOL completed){
+        if (completed) {
+            
+            NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  SRecommendEmailTitle, @"subject",
+                                  @"",@"emailBody",
+                                  nil];
+            
+            [[ExportController sharedInstance] sendEmail:dict];
+        }
+    };
+    
+    [validator validate];
+
 	
 }
 - (void)supportEmail{
 	
-	
-	NSDictionary *dict2 = @{
-	@"subject": SSupportEmailTitle,
-	@"toRecipients": @[@"support@xappsoft.de"]
-	};
-	
+
     
-	[[ExportController sharedInstance] sendEmail:dict2];
+    validator = [[ParentalGateValidator alloc] init];
+    validator.completionHandler = ^(BOOL completed){
+        if (completed) {
+            
+         	
+            NSDictionary *dict2 = @{
+                                    @"subject": SSupportEmailTitle,
+                                    @"toRecipients": @[@"support@xappsoft.de"]
+                                    };
+            
+            
+            [[ExportController sharedInstance] sendEmail:dict2];
+        }
+    };
+    
+    [validator validate];
 }
 
 
 - (void)appstore{
-	MoreApp *app = moreApps[selectedIndex];
-	NSString *appid = app.fAppid;
-	
-	NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/de/app/id%@&mt=8",appid];
-	NSURL *url = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF16StringEncoding]];
-    
 
-	[[UIApplication sharedApplication] openURL:url];
+    MoreApp *app = moreApps[selectedIndex];
+    NSString *appid = app.fAppid;
+    
+    validator = [[ParentalGateValidator alloc] init];
+    validator.completionHandler = ^(BOOL completed){
+        if (completed) {
+            
+         	
+            
+            NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/de/app/id%@&mt=8",appid];
+            NSURL *url = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF16StringEncoding]];
+            
+            
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    };
+    
+    [validator validate];
 	
 }
 

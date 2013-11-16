@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "InstructionViewController.h"
 #import "MoreApp.h"
+#import "ParentalGateValidator.h"
 
 #define kFontName @"Futura-CondensedMedium"
 
@@ -19,6 +20,8 @@
 	InstructionViewController *instructionVC;
 	UIButton *backB;
 
+    ParentalGateValidator *validator;
+    
 	NSMutableArray *moreApps;
 
 	__unsafe_unretained id<InfoDelegate> _delegate;

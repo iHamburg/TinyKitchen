@@ -111,6 +111,8 @@
 		2609D4D818059B6A0019C242 /* MoreApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D47818059B6A0019C242 /* MoreApp.m */; };
 		2609D4DB18059EA60019C242 /* TKInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D4DA18059EA60019C242 /* TKInfoViewController.m */; };
 		2609D4DC18059EA60019C242 /* TKInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D4DA18059EA60019C242 /* TKInfoViewController.m */; };
+		260DB940182E8EBA00372B82 /* ParentalGateValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DB93F182E8EBA00372B82 /* ParentalGateValidator.m */; };
+		260DB941182E8EBA00372B82 /* ParentalGateValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DB93F182E8EBA00372B82 /* ParentalGateValidator.m */; };
 		260DC28E1807CD1000E7CADA /* LRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC2891807CD1000E7CADA /* LRootViewController.m */; };
 		260DC28F1807CD1000E7CADA /* LRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC2891807CD1000E7CADA /* LRootViewController.m */; };
 		260DC2901807CD1000E7CADA /* PRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260DC28B1807CD1000E7CADA /* PRootViewController.m */; };
@@ -1420,6 +1422,8 @@
 		2609D47818059B6A0019C242 /* MoreApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreApp.m; sourceTree = "<group>"; };
 		2609D4D918059EA60019C242 /* TKInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInfoViewController.h; sourceTree = "<group>"; };
 		2609D4DA18059EA60019C242 /* TKInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInfoViewController.m; sourceTree = "<group>"; };
+		260DB93E182E8EBA00372B82 /* ParentalGateValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentalGateValidator.h; sourceTree = "<group>"; };
+		260DB93F182E8EBA00372B82 /* ParentalGateValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentalGateValidator.m; sourceTree = "<group>"; };
 		260DC2881807CD1000E7CADA /* LRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRootViewController.h; sourceTree = "<group>"; };
 		260DC2891807CD1000E7CADA /* LRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRootViewController.m; sourceTree = "<group>"; };
 		260DC28A1807CD1000E7CADA /* PRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRootViewController.h; sourceTree = "<group>"; };
@@ -2210,6 +2214,7 @@
 		2609D4361805970A0019C242 /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				260DB93D182E8EBA00372B82 /* Validator */,
 				260DC2871807CD1000E7CADA /* Root */,
 				AFD551A316C8F6FC00D59B0B /* AdView */,
 				2609D44418059B6A0019C242 /* InfoVC */,
@@ -2304,6 +2309,15 @@
 				2609D47318059B6A0019C242 /* icon_moreappback.png */,
 			);
 			path = MoreApps;
+			sourceTree = "<group>";
+		};
+		260DB93D182E8EBA00372B82 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				260DB93E182E8EBA00372B82 /* ParentalGateValidator.h */,
+				260DB93F182E8EBA00372B82 /* ParentalGateValidator.m */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		260DC2871807CD1000E7CADA /* Root */ = {
@@ -4665,6 +4679,7 @@
 				AFC617E615C0966E00A39ED5 /* UIView+Extras.m in Sources */,
 				AFC617E715C0966E00A39ED5 /* UIWebView+Extras.m in Sources */,
 				AFC617E815C0966E00A39ED5 /* Controller.m in Sources */,
+				260DB940182E8EBA00372B82 /* ParentalGateValidator.m in Sources */,
 				AFC617E915C0966E00A39ED5 /* Facebook.m in Sources */,
 				2609D4D718059B6A0019C242 /* MoreApp.m in Sources */,
 				26F3F3901806B7AC004FC419 /* AdView.m in Sources */,
@@ -4766,6 +4781,7 @@
 				AFA35A3C15EC0F73003E7C5A /* UIView+Extras.m in Sources */,
 				AFA35A3D15EC0F73003E7C5A /* UIWebView+Extras.m in Sources */,
 				AFA35A3E15EC0F73003E7C5A /* Controller.m in Sources */,
+				260DB941182E8EBA00372B82 /* ParentalGateValidator.m in Sources */,
 				AFA35A3F15EC0F73003E7C5A /* Facebook.m in Sources */,
 				2609D4D818059B6A0019C242 /* MoreApp.m in Sources */,
 				26F3F3911806B7AC004FC419 /* AdView.m in Sources */,

@@ -47,7 +47,7 @@ static id sharedInstance;
 
 +(id)sharedInstance{
 
-    if (isPaid() || isIAPFullVersion) {
+    if (isPaid() || isIAPFullVersion || YES) {
         return nil;
     }
     

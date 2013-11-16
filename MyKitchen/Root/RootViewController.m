@@ -141,7 +141,7 @@
 - (void)loadAdView {
     
     ///启动adview
-    [AdView sharedInstance];
+   [AdView sharedInstance];
 }
 
 - (void)test{
